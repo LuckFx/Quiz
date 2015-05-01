@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <meta charset="utf-8">
+    <title>Quiz</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Bienvenido a <%= title %></h1>
-    <p> El portal donde podrá crear sus propios juegos!</p>
-    <a href="authors.ejs" >Autores</a>
+    <h2>Quiz: el juego de las preguntas</h2>
+
+    <%= respuesta %><p>
+    <a href="/quizes/question">Inténtelo otra vez</a>
+  //  <a href="authors" >Autores</a>
     <footer><a href="https://github.com/LuisFernandezGomez/Quiz">Proyecto en GITHub</a></footer>
   </body>
 </html>
