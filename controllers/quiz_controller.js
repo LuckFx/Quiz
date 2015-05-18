@@ -14,11 +14,19 @@ exports.load = function(req, res, next, quizId) {
 
 // GET /quizes
 exports.index = function(req, res) {
-	models.Quiz.findAll().then(
-		function(quizes) 	{
+	if(req.query.search) {
+		var query = req.query.search.replace(/\s/g, '%');
+		var search = '%' + query +'%';
+		models.Quiz.findAll({where: ["pregunta like ?", search]}).then(
+			function(quizes) {
 			res.render('quizes/index.ejs', { quizes: quizes, errors: []});
+			}).catch(function(error){next(error)});
+	} else {
+		models.Quiz.findAll().then(
+			function(quizes) 	{
+			res.render('quizes/index.ejs', { quizes: quizes, errors: []});
+			});
 	}
-	).catch(function(error){next(error)});
 };
 
 // GET /quizes/:id
@@ -60,6 +68,7 @@ exports.author = function(req, res) {
 	var quiz = req.quiz;
 	res.render('author', {quiz: quiz, errors: []});
 };
+
 
 // POST /quizes/create
 exports.create = function(req, res) {
@@ -109,4 +118,3 @@ exports.destroy = function(req, res) {
 		res.redirect('/quizes');
 	}).catch(function(error){next(error)});
 };
-
