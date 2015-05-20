@@ -121,3 +121,12 @@ exports.destroy = function(req, res) {
 		res.redirect('/quizes');
 	}).catch(function(error){next(error)});
 };
+
+// GET /quizes/statistics
+exports.statistics = function(req, res) {	
+	var quiz = req.quiz;
+														
+	res.render('quizes/statistics',{quiz: quiz,  errors: []});
+};
+
+

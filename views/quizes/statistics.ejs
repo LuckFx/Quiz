@@ -1,35 +1,25 @@
 
-<% var preguntasSinComent = 0;								%>
-<% var comentariosTotales = 0;									%>
-<% var i; for (i=0; i< quizes.length; i++) { 						%>
-<%		quiz = quizes[i];											%>
-<%		if(quiz.Coments.length===0){ 							%>
-<%			preguntasSinComent ++;}							%>
-<% 	comentariosTotales += quiz.Coments.length;			%>
-<%}																%>
-	
-
 <table>
 	<tr>
 		<td>Número de preguntas:  </td>
-		<td><% quizes.length %></td>
+		<td><% //quizes.length %></td>
 	</tr>
 	<tr>
 		<td>Número de comentarios totales: </td>
 
-		<td><% comentariosTotales %></td>
+		<td><% //comentariosTotales %></td>
 	</tr>
 	<tr>
 		<td>Número medio de comentarios por pregunta: </td>
 
-		<td><% comentariosTotales/quizes.length  %></td>
+		<td><% //comentariosTotales/quizes.length  %></td>
 	</tr>
 	<tr>
 		<td>Número de preguntas sin comentarios: </td>
-		<td><% preguntasSinComent %></td>
+		<td><% //preguntasSinComent %></td>
 	</tr>
 	<tr>
 		<td>Número de preguntas con comentarios:</td>
-		<td><%  quizes.length-preguntasSinComent%></td>
+		<td><%  //quizes.length-preguntasSinComent%></td>
 	</tr>
 </table>

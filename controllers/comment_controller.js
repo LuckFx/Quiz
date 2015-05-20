@@ -45,7 +45,7 @@ exports.create = function(req, res) {
 		).catch(function(error) {next(error)});
 };
 
-// PUT /quizes/:quizId/comments/:commentId/publish
+// GET /quizes/:quizId/comments/:commentId/publish
 exports.publish = function(req, res) {
 	req.comment.publicado = true;
 
