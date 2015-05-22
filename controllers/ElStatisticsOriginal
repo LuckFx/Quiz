@@ -1,0 +1,37 @@
+var models = require('../models/models.js');
+
+// GET /quizes/statistics
+exports.statistics = function(req, res) {	
+
+	models.Quiz.findAll().then(
+		function(quizes) 	{
+			var preguntasSinComent = 0;								
+			var comentariosTotales = 0;									
+			var i; 
+			for (i=0; i< quizes.length; i++) { 	
+				console.log("4444444444444");					
+				models.Comment.find({
+					where:{
+						id: Number(i+1)
+					}
+					}).then(function(comment) {
+						if (comment) {
+							console.log("555555555555555");				
+							comentariosTotales ++;
+							console.log("Comentarios totales: " + comentariosTotales);					
+					
+						} else{
+							console.log("6666666666666666");					
+							preguntasSinComent++;
+							console.log("Preguntas sin comentario: "+ preguntasSinComent);					
+						}
+					}
+				)				
+			}	
+			console.log("PSC: "+ preguntasSinComent + ", CT: " + comentariosTotales);
+			res.render('quizes/statistics', { quizes: quizes, preguntasSinComent: preguntasSinComent, 
+													comentariosTotales: comentariosTotales, errors: []});										
+		}
+	);		
+		
+};

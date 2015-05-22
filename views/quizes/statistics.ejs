@@ -2,24 +2,24 @@
 <table>
 	<tr>
 		<td>Número de preguntas:  </td>
-		<td><% //quizes.length %></td>
+		<td><%= quizesLong %></td>
 	</tr>
 	<tr>
 		<td>Número de comentarios totales: </td>
 
-		<td><% //comentariosTotales %></td>
+		<td><%= commentsLong %></td>
 	</tr>
 	<tr>
 		<td>Número medio de comentarios por pregunta: </td>
 
-		<td><% //comentariosTotales/quizes.length  %></td>
+		<td><%= comentariosMedios  %></td>
 	</tr>
 	<tr>
 		<td>Número de preguntas sin comentarios: </td>
-		<td><% //preguntasSinComent %></td>
+		<td><%= preguntasSinComent %></td>
 	</tr>
 	<tr>
 		<td>Número de preguntas con comentarios:</td>
-		<td><%  //quizes.length-preguntasSinComent%></td>
+		<td><%= preguntasConComent %></td>
 	</tr>
 </table>
